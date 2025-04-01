@@ -1,14 +1,27 @@
-import { _decorator, Component, Node } from 'cc';
+import { _decorator, Component, director, Label, Node } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('GameManager')
 export class GameManager extends Component {
-    start() {
+  private static _instance: GameManager = null;
+  public static get instance(): GameManager {
+    return GameManager._instance;
+  }
+  @property(Label)
+  public highScoreLabel: Label = null;
 
-    }
+  protected onLoad(): void {
+    // 設為常駐節點(防止切換場景時被卸載)
+    director.addPersistRootNode(this.node);
+  }
 
-    update(deltaTime: number) {
-        
+  start() {}
+
+  update(deltaTime: number) {}
+
+  protected onDestroy(): void {
+    if (GameManager._instance === this) {
+      GameManager._instance = null;
     }
+  }
 }
-
