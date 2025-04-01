@@ -7,8 +7,6 @@ export class GameManager extends Component {
   public static get instance(): GameManager {
     return GameManager._instance;
   }
-  @property(Label)
-  public highScoreLabel: Label = null;
 
   protected onLoad(): void {
     // 設為常駐節點(防止切換場景時被卸載)
