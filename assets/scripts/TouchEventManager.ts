@@ -1,10 +1,8 @@
 import {
   _decorator,
   Component,
-  director,
   EventTouch,
   Input,
-  Label,
   Node,
   UITransform,
   v3,
