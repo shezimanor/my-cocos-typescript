@@ -14,11 +14,6 @@ const { ccclass, property } = _decorator;
 
 @ccclass('TouchEventManager')
 export class TouchEventManager extends Component {
-  private static _instance: TouchEventManager = null;
-  public static get instance(): TouchEventManager {
-    return TouchEventManager._instance;
-  }
-
   @property({ type: Node, tooltip: '跟著觸控點移動的節點' })
   public childNode: Node = null;
 
@@ -63,9 +58,10 @@ export class TouchEventManager extends Component {
   }
 
   protected onDestroy(): void {
-    if (TouchEventManager._instance === this) {
-      TouchEventManager._instance = null;
-    }
+    this.node.off(Input.EventType.TOUCH_START, this.onTouchStart, this);
+    this.node.off(Input.EventType.TOUCH_MOVE, this.onTouchMove, this);
+    this.node.off(Input.EventType.TOUCH_END, this.onTouchEnd, this);
+    this.node.off(Input.EventType.TOUCH_CANCEL, this.onTouchEnd, this);
   }
 
   onTouchStart(event: EventTouch) {

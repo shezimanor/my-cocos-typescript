@@ -9,6 +9,13 @@ export class GameManager extends Component {
   }
 
   protected onLoad(): void {
+    // 單例模式
+    if (!GameManager._instance) {
+      // console.log('GameManager instance created');
+      GameManager._instance = this;
+    } else {
+      this.destroy();
+    }
     // 設為常駐節點(防止切換場景時被卸載)
     director.addPersistRootNode(this.node);
   }

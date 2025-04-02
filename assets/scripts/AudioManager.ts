@@ -29,14 +29,14 @@ export class AudioManager extends Component {
   public soundSource: AudioSource = null;
 
   protected onLoad(): void {
-    // 設為常駐節點
-    director.addPersistRootNode(this.node);
     // 單例模式
     if (!AudioManager._instance) {
       AudioManager._instance = this;
     } else {
       this.destroy();
     }
+    // 設為常駐節點
+    director.addPersistRootNode(this.node);
   }
 
   protected onDestroy(): void {
