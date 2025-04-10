@@ -1,7 +1,5 @@
 import { _decorator, EventTarget } from 'cc';
-const { ccclass } = _decorator;
 
-@ccclass('EventManager')
 export class EventManager {
   private constructor() {}
   public static eventTarget: EventTarget = new EventTarget();
