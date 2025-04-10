@@ -1,4 +1,4 @@
-import { _decorator, EventTarget } from 'cc';
+import { EventTarget } from 'cc';
 
 export class EventManager {
   private constructor() {}
