@@ -83,6 +83,8 @@ export class TouchEventManager extends Component {
     const touchUIPosition = event.getUILocation();
     // 2. 轉換為本地座標
     const localPosition = this.tempLocalVec3;
+    // 關係圖: 移動點的父節點(this.node) vs. 移動點(this.childNode)
+    // 關係圖: 移動點的父節點(this.node.parent) vs. 移動點(this.node)
     this.node
       .getComponent(UITransform)
       .convertToNodeSpaceAR(
