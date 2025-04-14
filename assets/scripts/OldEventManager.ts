@@ -1,5 +1,5 @@
-import { _decorator, Component, director, Node, EventTarget } from 'cc';
-const { ccclass, property } = _decorator;
+import { _decorator, Component, EventTarget } from 'cc';
+const { ccclass } = _decorator;
 
 @ccclass('EventManager')
 export class EventManager extends Component {
