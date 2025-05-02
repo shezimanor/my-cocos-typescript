@@ -46,7 +46,7 @@ export class AudioManager extends Component {
   }
 
   playMusic(index: number) {
-    if (this.soundSource && this.musicClips[index]) {
+    if (this.musicSource && this.musicClips[index]) {
       this.musicSource.clip = this.musicClips[index];
       this.musicSource.play();
     } else {
@@ -55,7 +55,7 @@ export class AudioManager extends Component {
   }
 
   stopMusic(index: number) {
-    if (this.soundSource && this.musicClips[index]) {
+    if (this.musicSource && this.musicClips[index]) {
       this.musicSource.clip = this.musicClips[index];
       this.musicSource.stop();
     } else {
