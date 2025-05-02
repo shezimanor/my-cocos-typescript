@@ -82,7 +82,7 @@ export class AudioManager extends Component {
 
   playSoundWithSource(sound: AudioClip) {
     // 可由外部的腳本傳入音效
-    if (AudioClip) {
+    if (sound) {
       this.soundSource.playOneShot(sound);
     } else {
       console.error('AudioManager: Sound source or clip not found');
